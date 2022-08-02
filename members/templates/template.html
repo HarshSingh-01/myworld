@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% with greetings=1 %}
+{% if 'greetings==1' %}
+<ul>
+    {% for x in mymembers %}
+    {% cycle 'lightblue' 'pink' 'yellow' 'coral' 'grey' as bgcolor silent %}
+    {% if forloop.counter == 3 %}
+    {% resetcycle %}
+    {% endif %}
+    <li style='background-color:{{bgcolor}}'>{{x.firstname}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<h4>No Person</h4>
+{% endif %}
+{% endwith %}
+{% endblock %}
